@@ -1,5 +1,15 @@
 {
-  "validCredentials":
- { "validEmail":"tanakkraina@gmail.com","validPwd":"123456789" }
-
+  "invalidEmail1":"abcdef",
+  "invalidEmail2":"abc.com",
+  "invalidEmail3":"abc.com@gmail",
+  "unregisteredEmail":"tana@gmail.com",
+  "validEmail":"tanakkraina@gmail.com",
+  "invalidPwd1":"123",
+  "incorrectPwd":"1234567",
+  "validPwd":"123456789",
+  "CampaignName":"Givers and Takers",
+  "CampaignSummary":"Every day, employees make decisions about whether to act like givers or like takers. When they act like givers, they contribute to others without seeking anything in return. They might offer assistance, share knowledge, or make valuable introductions.",
+  "CampaignLocation":"Mohali , India",
+  "CampaignOrg":"apex"
 }
+
