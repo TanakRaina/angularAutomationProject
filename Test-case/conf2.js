@@ -5,6 +5,8 @@ exports.config={
     framework: 'jasmine',
     seleniumAddress: 'http://localhost:4444/wd/hub' ,
     specs:['specs/createCampaign.js'],
-    jasmineNodeOpts: {defaultTimeoutInterval: 90000}
+    jasmineNodeOpts: {
+    showColors: true,
+    defaultTimeoutInterval: 90000}
 
     }

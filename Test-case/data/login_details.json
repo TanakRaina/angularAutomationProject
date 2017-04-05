@@ -7,7 +7,7 @@
   "invalidPwd1":"123",
   "incorrectPwd":"1234567",
   "validPwd":"123456789",
-  "CampaignName":"bacteria and solutions",
+  "CampaignName":"CrowdFunding for Employees",
   "CampaignSummary":"Every day employees make decisions about whether to act like givers or like takers When they act like givers they contribute to others without seeking anything in return They might offer assistance share knowledge or make valuable introductions.",
   "CampaignLocation":"Mohali , India",
   "CampaignOrg":"HelpingHut",
@@ -22,7 +22,12 @@
   "DonateSecurityCode":"562",
   "DonateExpiryDate":"09/21",
   "chapterTitleInput":"Delhi",
-  "chapterSummaryInput":"Delhi is on the banks of the Yamuna River. Historians have evidence that people have been living in this region since at least the 6th century BC. People also believe that the legendary city of Indraprastha was here. This city has many remains and monuments of historic importance."
+  "chapterSummaryInput":"Delhi is on the banks of the Yamuna River. Historians have evidence that people have been living in this region since at least the 6th century BC. People also believe that the legendary city of Indraprastha was here. This city has many remains and monuments of historic importance.",
+  "eventTitleInput":"5km marathon",
+  "eventDescriptionInput":"A Marathon of 5kms will be organizaed . Starting point would be Fortis Hospitak , Mohali . This would be a Charity Run.Participants are invited !",
+  "eventVenueInput":"Fortis hospital",
+  "eventVenueAddressInput":"Mohali",
+  "sponsorNameInput":"RoundGlassPartners"
 
 }
 
