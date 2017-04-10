@@ -2,7 +2,7 @@ describe('Campaign Create Spec' , function(){
            var path = require('path');
                     browser.driver.manage().window().setSize(1280, 1024);
                     browser.driver.manage().deleteAllCookies();
-                    browser.get('http://givingapp-qa.stage-roundglass.com/login');
+                    browser.get('http://giving.duckdns.org/login');
                     element(by.id('emailInput')).sendKeys(browser.params.validEmail);
                     element(by.id('passwordInput')).sendKeys(browser.params.validPwd);
                     element(by.css('.loginForm button[type="submit"]')).click().then(function(){
@@ -16,6 +16,7 @@ describe('Campaign Create Spec' , function(){
 
           afterEach(function(){
           browser.sleep(3000);
+          browser.executeScript('window.scrollTo(0,0);');
           });
 
 
@@ -33,11 +34,10 @@ describe('Campaign Create Spec' , function(){
 
                     });
 
-/*
-           it('should enter campaign details' , function(){
 
+           it('should enter campaign details' , function(){
+                   element(by.css('#tabbar div div ul li:nth-child(2) a')).getText().then(function (text) { console.log(text) });
                    element(by.css('#tabbar div div ul li:nth-child(2) a')).click().then(function(){
-                   console.log('inside campaign details');
                    browser.sleep(2000);
 
                    var fileToUpload = '../data/pic.js';
@@ -46,7 +46,6 @@ describe('Campaign Create Spec' , function(){
                    browser.sleep(3000);
 
                    element(by.id('simple-dropdown')).click().then(function(){
-                   console.log('clicked dropdown icon')
                    browser.sleep(3000);
 
                    element(by.css('.uploadBtn')).click()
@@ -61,90 +60,56 @@ describe('Campaign Create Spec' , function(){
 
                    });
 
-           it('should manage campaign configurations' , function(){
 
-                    element(by.css('#tabbar div div ul li:nth-child(9) a')).click().then(function(){
-                    expect(element(by.id('donationMatching')).isEnabled()).toBe(true);
-                    expect(element(by.id('includeAddress')).isEnabled()).toBe(true);
-                    element(by.css('.action .btn:nth-child(1)')).click();
+           it('should create a story',function(){
+                    element(by.css('#tabbar div div ul li:nth-child(3) a')).getText().then(function (text) { console.log(text) });
+                    element(by.css('#tabbar div div ul li:nth-child(3) a')).click().then(function(){
+
+                    element(by.css('.storyPanels .panel .container .addPanel .addNewFile .btn')).click().then(function(){
+                    browser.sleep(3000);
 
 
+                    var fileToUpload = '../data/pic.js';
+
+                    var absolutePath = path.resolve(__filename, fileToUpload);
+                    $('input[type="file"]').sendKeys(absolutePath);
+                    browser.sleep(2000);
+                    element(by.css('#fundraising-app-holder > div > create-campaign > div > div.container-fluid.customTabContent.campaignDetail.createCampaign > div > div > story-list-widget > div > div > div.storyPanels > div > div:nth-child(2) > div > div > form > div.col-xs-12.text-center > div > input')).click();
 
 
-                    element(by.id('donationMatching')).isSelected().then(function(selected) {
-                        if (selected) {
-                            console.log('donation matching checkbox is selected');
-                            element(by.id('donationMatching')).click();
-                        }
-
+                    browser.sleep(3000);
+                    element(by.id('storyTitleInput')).sendKeys(browser.params.storyTitle);
+                    element(by.id('storyDescriptionInput')).sendKeys(browser.params.storyDescription);
+                    element(by.css('.checkbox .btn-group .btn')).click();
+                    browser.sleep(3000);
+                    element(by.css('.row .action .btn:nth-child(1)')).click();
                     });
+                    }); });
 
-                    element(by.id('includeAddress')).isSelected().then(function(selected) {
-                                            if (selected) {
-                                            console.log('includeAddress checkbox is selected');
-                                            element(by.id('includeAddress')).click();
-                                            }
-                                        });
+           it('should create an event',function(){
+                    element(by.css('#tabbar div div ul li:nth-child(5) a')).getText().then(function (text) { console.log(text) });
+                    element(by.css('#tabbar div div ul li:nth-child(5) a')).click().then(function(){
 
+                    element(by.css('.outerPanel .container .addPanel .addNewFile .btn')).click().then(function(){
+                    browser.sleep(3000);
 
+                    element(by.id('eventTitleInput')).sendKeys(browser.params.eventTitleInput);
+                    element(by.id('eventDescriptionInput')).sendKeys(browser.params.eventDescriptionInput);
+                    element(by.id('eventVenueInput')).sendKeys(browser.params.eventVenueInput);
+                    element(by.id('eventVenueAddressInput')).sendKeys(browser.params.eventVenueAddressInput);
+                    element(by.id('eventVenueInput')).sendKeys(browser.params.eventVenueInput);
 
-           }); });
-
-
-
-
-            it('should create a story',function(){
-                             element(by.css('#tabbar div div ul li:nth-child(3) a')).click().then(function(){
-                             console.log('inside story tab');
-
-                             element(by.css('.storyPanels .panel .container .addPanel .addNewFile .btn')).click().then(function(){
-                             console.log('clicked story dropdown icon')
-                             browser.sleep(3000);
-
-
-                             var fileToUpload = '../data/pic.js';
-
-                             var absolutePath = path.resolve(__filename, fileToUpload);
-                             $('input[type="file"]').sendKeys(absolutePath);
-                             browser.sleep(2000);
-                             element(by.css('#fundraising-app-holder > div > create-campaign > div > div.container-fluid.customTabContent.campaignDetail.createCampaign > div > div > story-list-widget > div > div > div.storyPanels > div > div:nth-child(2) > div > div > form > div.col-xs-12.text-center > div > input')).click();
-
-
-                             browser.sleep(3000);
-                             element(by.id('storyTitleInput')).sendKeys(browser.params.storyTitle);
-                             element(by.id('storyDescriptionInput')).sendKeys(browser.params.storyDescription);
-                             element(by.css('.checkbox .btn-group .btn')).click();
-                             browser.sleep(3000);
-                             element(by.css('.row .action .btn')).click();
-                             });
-                             }); });
-
-            it('should create an event',function(){
-                                 element(by.css('#tabbar div div ul li:nth-child(5) a')).click().then(function(){
-                                 console.log('inside events tab');
-
-                                 element(by.css('.outerPanel .container .addPanel .addNewFile .btn')).click().then(function(){
-                                 console.log('clicked event dropdown icon')
-                                 browser.sleep(3000);
-
-                                 element(by.id('eventTitleInput')).sendKeys(browser.params.eventTitleInput);
-                                 element(by.id('eventDescriptionInput')).sendKeys(browser.params.eventDescriptionInput);
-                                 element(by.id('eventVenueInput')).sendKeys(browser.params.eventVenueInput);
-                                 element(by.id('eventVenueAddressInput')).sendKeys(browser.params.eventVenueAddressInput);
-                                 element(by.id('eventVenueInput')).sendKeys(browser.params.eventVenueInput);
-
-                                 browser.sleep(3000);
-                                 element(by.css('.container .action .btn:nth-child(1)')).click();
-                                 });
-                                 }); });
+                    browser.sleep(3000);
+                    element(by.css('.container .action .btn:nth-child(1)')).click();
+                    });
+                    }); });
 
 
            it('should add a sponsor to campaign ',function(){
+                    element(by.css('#tabbar div div ul li:nth-child(6) a')).getText().then(function (text) { console.log(text) });
                     element(by.css('#tabbar div div ul li:nth-child(6) a')).click().then(function(){
-                    console.log('inside sponsors tab');
 
                     element(by.css('.containerPanel .container .addPanel .addNewFile .btn')).click().then(function(){
-                    console.log('clicked sponsor dropdown icon')
                     browser.sleep(3000);
 
                     element(by.id('sponsorNameInput')).sendKeys(browser.params.sponsorNameInput);
@@ -162,24 +127,51 @@ describe('Campaign Create Spec' , function(){
                     element(by.css('.container .action .btn:nth-child(1)')).click();
                     });
                     }); });
-*/
-
-
 
            it('should create a chapter' , function(){
-                               element(by.css('#tabbar div div ul li:nth-child(4) a')).click().then(function(){
-                               browser.sleep(6000);
-                               element(by.css('.container-fluid .tab-content .tab-pane div div .outerPanel div div div .container .addPanel .addNewFile .btn')).click().then(function(){
+                    element(by.css('#tabbar div div ul li:nth-child(4) a')).getText().then(function (text) { console.log(text) });
+                    element(by.css('#tabbar div div ul li:nth-child(4) a')).click().then(function(){
+                    browser.sleep(6000);
+                    element(by.css('.container-fluid .tab-content .tab-pane div div .outerPanel div div div .container .addPanel .addNewFile .btn')).click().then(function(){
 
-                               browser.sleep(3000);
-                               console.log('clicked add button');
+                    browser.sleep(3000);
 
-                               element(by.id('chapterTitleInput')).sendKeys(browser.params.chapterTitleInput);
-                               element(by.id('chapterSummaryInput')).sendKeys(browser.params.chapterSummaryInput);
-                               browser.sleep(2000);
-                               element(by.css('#fundraising-app-holder > div > create-campaign > div > div.container-fluid.customTabContent.campaignDetail.createCampaign > div > div > manage-chapter-widget > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div.container-fluid > div > div.action.text-center > button')).click();
+                    element(by.id('chapterTitleInput')).sendKeys(browser.params.chapterTitleInput);
+                    element(by.id('chapterSummaryInput')).sendKeys(browser.params.chapterSummaryInput);
+                    browser.sleep(2000);
+                    element(by.css('#fundraising-app-holder > div > create-campaign > div > div.container-fluid.customTabContent.campaignDetail.createCampaign > div > div > manage-chapter-widget > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div.container-fluid > div > div.action.text-center > button')).click();
 
-                               }); });
-                      });//it block-create chapter
+                    }); });
+                    });//it block-create chapter
 
 });//describe block
+/*
+it('should manage campaign configurations' , function(){
+
+                    element(by.css('#tabbar div div ul li:nth-child(9) a')).click().then(function(){
+                    expect(element(by.id('donationMatching')).isEnabled()).toBe(true);
+                    expect(element(by.id('includeAddress')).isEnabled()).toBe(true);
+                    element(by.css('.action .btn:nth-child(1)')).click();
+
+
+
+
+                    element(by.id('donationMatching')).isSelected().then(function(selected) {
+                    if (selected) {
+                    console.log('donation matching checkbox is selected');
+                    element(by.id('donationMatching')).click();
+                    }
+
+                    });
+
+                    element(by.id('includeAddress')).isSelected().then(function(selected) {
+                    if (selected) {
+                    console.log('includeAddress checkbox is selected');
+                    element(by.id('includeAddress')).click();
+                    }
+                    });
+
+
+
+           }); });
+*/
