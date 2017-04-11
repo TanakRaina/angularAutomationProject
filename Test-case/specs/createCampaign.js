@@ -2,7 +2,7 @@ describe('Campaign Create Spec' , function(){
            var path = require('path');
                     browser.driver.manage().window().setSize(1280, 1024);
                     browser.driver.manage().deleteAllCookies();
-                    browser.get('http://giving.duckdns.org/login');
+                    browser.get('http://givingapp.stage-roundglass.com/login');
                     element(by.id('emailInput')).sendKeys(browser.params.validEmail);
                     element(by.id('passwordInput')).sendKeys(browser.params.validPwd);
                     element(by.css('.loginForm button[type="submit"]')).click().then(function(){
@@ -26,16 +26,15 @@ describe('Campaign Create Spec' , function(){
                     browser.sleep(2000);
                     element(by.css('#tabbar div div ul li:nth-child(1) a span')).getText().then(function (text) { console.log(text) });
 
-                    element(by.id('campaignNameInput')).sendKeys(browser.params.CampaignName);
-                    element(by.id('campaignSummaryInput')).sendKeys(browser.params.CampaignSummary);
+                    element(by.id('campaignNameInput')).sendKeys(browser.params.Campaign_Name);
+                    element(by.id('campaignSummaryInput')).sendKeys(browser.params.Campaign_Summary);
                     element(by.tagName('select')).$('[value="Elderly"]').click();
-                    element(by.xpath('//*[@id="fundraising-app-holder"]/div/create-campaign/div/div[2]/div/div/campaign-overview/div[2]/div/form/div/div/div[5]/div/div[1]/auto-complete-widget/div/input')).sendKeys(browser.params.CampaignLocation);
+                    element(by.xpath('//*[@id="fundraising-app-holder"]/div/create-campaign/div/div[2]/div/div/campaign-overview/div[2]/div/form/div/div/div[5]/div/div[1]/auto-complete-widget/div/input')).sendKeys(browser.params.Campaign_Location);
                     element(by.css('.action .btn:nth-child(1)')).click();
 
                     });
 
-
-           it('should enter campaign details' , function(){
+         it('should enter campaign details' , function(){
                    element(by.css('#tabbar div div ul li:nth-child(2) a')).getText().then(function (text) { console.log(text) });
                    element(by.css('#tabbar div div ul li:nth-child(2) a')).click().then(function(){
                    browser.sleep(2000);
@@ -78,8 +77,8 @@ describe('Campaign Create Spec' , function(){
 
 
                     browser.sleep(3000);
-                    element(by.id('storyTitleInput')).sendKeys(browser.params.storyTitle);
-                    element(by.id('storyDescriptionInput')).sendKeys(browser.params.storyDescription);
+                    element(by.id('storyTitleInput')).sendKeys(browser.params.story_Title);
+                    element(by.id('storyDescriptionInput')).sendKeys(browser.params.story_Description);
                     element(by.css('.checkbox .btn-group .btn')).click();
                     browser.sleep(3000);
                     element(by.css('.row .action .btn:nth-child(1)')).click();
@@ -93,11 +92,11 @@ describe('Campaign Create Spec' , function(){
                     element(by.css('.outerPanel .container .addPanel .addNewFile .btn')).click().then(function(){
                     browser.sleep(3000);
 
-                    element(by.id('eventTitleInput')).sendKeys(browser.params.eventTitleInput);
-                    element(by.id('eventDescriptionInput')).sendKeys(browser.params.eventDescriptionInput);
-                    element(by.id('eventVenueInput')).sendKeys(browser.params.eventVenueInput);
-                    element(by.id('eventVenueAddressInput')).sendKeys(browser.params.eventVenueAddressInput);
-                    element(by.id('eventVenueInput')).sendKeys(browser.params.eventVenueInput);
+                    element(by.id('eventTitleInput')).sendKeys(browser.params.event_Title);
+                    element(by.id('eventDescriptionInput')).sendKeys(browser.params.event_Description);
+                    element(by.id('eventVenueInput')).sendKeys(browser.params.event_Venue);
+                    element(by.id('eventVenueAddressInput')).sendKeys(browser.params.event_VenueAddress);
+                    element(by.id('eventVenueInput')).sendKeys(browser.params.event_Venue);
 
                     browser.sleep(3000);
                     element(by.css('.container .action .btn:nth-child(1)')).click();
@@ -112,7 +111,7 @@ describe('Campaign Create Spec' , function(){
                     element(by.css('.containerPanel .container .addPanel .addNewFile .btn')).click().then(function(){
                     browser.sleep(3000);
 
-                    element(by.id('sponsorNameInput')).sendKeys(browser.params.sponsorNameInput);
+                    element(by.id('sponsorNameInput')).sendKeys(browser.params.sponsor_Name);
 
                     var fileToUpload = '../data/pic.js';
 
@@ -128,16 +127,29 @@ describe('Campaign Create Spec' , function(){
                     });
                     }); });
 
+           it('should add FAQ to the campaign',function(){
+                               element(by.css('#tabbar div div ul li:nth-child(8) a')).getText().then(function (text) { console.log(text) });
+                               element(by.css('#tabbar div div ul li:nth-child(8) a')).click().then(function(){
+
+                               element(by.css('.container .addPanel .addNewFile .btn')).click().then(function(){
+                               browser.sleep(3000);
+
+                               element(by.id('faqTitleInput')).sendKeys(browser.params.FAQ_question);
+                               element(by.id('faqDescriptionInput')).sendKeys(browser.params.FAQ_answer);
+                               browser.sleep(3000);
+                               element(by.css('.container .action .btn:nth-child(1)')).click();
+                               });
+                               }); });
+
+
            it('should create a chapter' , function(){
                     element(by.css('#tabbar div div ul li:nth-child(4) a')).getText().then(function (text) { console.log(text) });
                     element(by.css('#tabbar div div ul li:nth-child(4) a')).click().then(function(){
                     browser.sleep(6000);
-                    element(by.css('.container-fluid .tab-content .tab-pane div div .outerPanel div div div .container .addPanel .addNewFile .btn')).click().then(function(){
-
+                    element(by.css('.container .addPanel .addNewFile .btn')).click().then(function(){
                     browser.sleep(3000);
-
-                    element(by.id('chapterTitleInput')).sendKeys(browser.params.chapterTitleInput);
-                    element(by.id('chapterSummaryInput')).sendKeys(browser.params.chapterSummaryInput);
+                    element(by.id('chapterTitleInput')).sendKeys(browser.params.chapter_Title);
+                    element(by.id('chapterSummaryInput')).sendKeys(browser.params.chapter_Summary);
                     browser.sleep(2000);
                     element(by.css('#fundraising-app-holder > div > create-campaign > div > div.container-fluid.customTabContent.campaignDetail.createCampaign > div > div > manage-chapter-widget > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div.container-fluid > div > div.action.text-center > button')).click();
 
