@@ -1,3 +1,4 @@
+//donation for campaign with stripe and no billing address is successful
 describe('Check donation using search for campaign' , function(){
             browser.driver.manage().window().maximize();
             browser.driver.manage().deleteAllCookies();
@@ -23,10 +24,10 @@ describe('Check donation using search for campaign' , function(){
             element(by.css('#searchbar > ul > li > div > div > auto-complete-widget > div > input')).sendKeys(browser.params.Donation_Campaign_stripe).then(function(){
             element(by.css('#searchbar > ul > li > div > div > auto-complete-widget > div > div > div > div > li > div > div:nth-child(2) > li > a')).click();
             });
-            browser.sleep(5000);
-           element(by.css('a[href*="Donate"]')).click()
+           browser.sleep(5000);
+           element(by.xpath('//*[@id="fundraising-app-holder"]/div/cause-detail/div/div[1]/div/div[2]/div[3]/div/span/a[1]')).click()
            console.log("entered donate block");
-            element(by.css('.customAmount')).clear().sendKeys(browser.params.Donation_Amount);
+           // element(by.css('.donationAmounte')).clear().sendKeys(browser.params.Donation_Amount);
 
             element(by.css('.row tipDetail')).isPresent().then(function(present){
             if(present == true){
@@ -79,7 +80,7 @@ describe('Check donation using search for campaign' , function(){
                 browser.sleep(100)}    });
 
             browser.sleep(1000);
-            element(by.css('div.action button')).click();
+            element(by.css('.action .btn')).click();
             browser.sleep(3000);
 
 

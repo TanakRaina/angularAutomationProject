@@ -4,7 +4,7 @@ exports.config={
 
     framework: 'jasmine',
     seleniumAddress: 'http://localhost:4444/wd/hub' ,
-    specs:['specs/createCampaign.js'],
+    specs:['specs/Donate_using_search.js'],
     jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 90000}

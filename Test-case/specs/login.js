@@ -3,7 +3,7 @@ describe('Login Page Test Spec' , function(){
        beforeEach(function(){
                browser.driver.manage().deleteAllCookies();
                browser.driver.manage().window().maximize();
-               browser.get('http://givingapp-qa.stage-roundglass.com/login');
+               browser.get('http://givingapp.stage-roundglass.com/login');
                }) //beforeEach block
 
        it('should check login with invalid email(like abcdef)' , function(){
@@ -125,17 +125,6 @@ describe('Login Page Test Spec' , function(){
 
                  });  //it block - go back
 
-       it('should check GO BACK on signup page' ,function(){
-                element(by.css('.form-action  p:nth-child(3)  a:nth-child(1)')).click().then(function(){
-                element(by.css('.loginForm .action button:nth-child(2)')).click();
-                browser.driver.wait(function(){
-                        return browser.driver.getCurrentUrl().then(function(url){
-                        return (/login/).test(url);
-                        });
-                        expect(browser.getCurrentUrl()).toMatch('/login');});
-                });
-
-                });
 
        it('should check alert on incorrect credentials',function(){
                 element(by.id('emailInput')).sendKeys(browser.params.validEmail);
@@ -198,3 +187,15 @@ describe('Login Page Test Spec' , function(){
        }); //describe block
 
 
+       it('should check GO BACK on signup page' ,function(){
+                element(by.css('.signupLink')).click().then(function(){
+                browser.sleep(4000)
+                element(by.cssContainingText('.btn','Go back')).getText().then(function(value){console.log(value)})
+                browser.driver.wait(function(){
+                        return browser.driver.getCurrentUrl().then(function(url){
+                        return (/login/).test(url);
+                        });
+                        expect(browser.getCurrentUrl()).toMatch('/login');});
+                });
+
+                });

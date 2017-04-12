@@ -7,7 +7,7 @@
   "invalidPwd1":"123",
   "incorrectPwd":"1234567",
   "validPwd":"123456789",
-  "Campaign_Name":"99 successful ways",
+  "Campaign_Name":"Money for cause",
   "Campaign_Summary":"Every day employees make decisions about whether to act like givers or like takers When they act like givers they contribute to others without seeking anything in return They might offer assistance share knowledge or make valuable introductions.",
   "Campaign_Location":"Mohali , India",
   "Campaign_Org":"HelpingHut",
@@ -23,7 +23,7 @@
   "org_admin_FirstName":"Tanak",
   "org_admin_LastName":"Raina",
   "org_admin_email":"tanakraina@gmail.com",
-  "Donation_Campaign_stripe":"Bridging The Gap",
+  "Donation_Campaign_stripe":"Fund My Cause",
   "Donation_Campaign_payu":"Make In India",
   "Donation_Amount":"56",
   "Donor_FirstName": "Aditi",
@@ -43,7 +43,9 @@
   "event_VenueAddress":"Mohali",
   "sponsor_Name":"RoundGlassPartners",
   "FAQ_question":"How can i track my donation?",
-  "FAQ_answer":"As soon as you donate for a campaign , you will receive the donation receipt via mail that contains the track number "
+  "FAQ_answer":"As soon as you donate for a campaign , you will receive the donation receipt via mail that contains the track number ",
+  "share_with_id":"cookiedrive19@gmail.com",
+  "share_with_message":"Hey , This is an amazing campaign ! Kindly visit and support me for this cause."
 
 }
 
