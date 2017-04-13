@@ -3,7 +3,7 @@ describe('Login Page Test Spec' , function(){
        beforeEach(function(){
                browser.driver.manage().deleteAllCookies();
                browser.driver.manage().window().maximize();
-               browser.get('http://givingapp.stage-roundglass.com/login');
+               browser.get('http://givingapp-qa.stage-roundglass.com/login');
                }) //beforeEach block
 
        it('should check login with invalid email(like abcdef)' , function(){
@@ -153,7 +153,7 @@ describe('Login Page Test Spec' , function(){
 
        it('should check facebook login',function(){
                  element.all(by.css('.fullWidthBtn a')).first().click().then(function(){
-                 expect(browser.driver.getCurrentUrl()).toMatch('/facebook');})
+                 expect(browser.driver.getCurrentUrl()).toContain('facebook');})
                  }); //it block-facebook login
 
 

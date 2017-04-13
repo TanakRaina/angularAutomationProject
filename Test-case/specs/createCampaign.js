@@ -2,7 +2,7 @@ describe('Campaign Create Spec' , function(){
            var path = require('path');
                     browser.driver.manage().window().setSize(1280, 1024);
                     browser.driver.manage().deleteAllCookies();
-                    browser.get('http://givingapp.stage-roundglass.com/login');
+                    browser.get('http://givingapp-qa.stage-roundglass.com/login');
                     element(by.id('emailInput')).sendKeys(browser.params.validEmail);
                     element(by.id('passwordInput')).sendKeys(browser.params.validPwd);
                     element(by.css('.loginForm button[type="submit"]')).click().then(function(){
@@ -140,8 +140,14 @@ describe('Campaign Create Spec' , function(){
                                element(by.css('.container .action .btn:nth-child(1)')).click();
                                });
                                }); });
+           it('should check logout to be successful',function(){
+                       element(by.css('#desktopMenu ul li a')).click();
+                       element(by.css('#userMenu li.text-center a')).click();
+                       browser.sleep(2000);
 
+                       }); // it block-successful logout
 
+/*
            it('should create a chapter' , function(){
                     element(by.css('#tabbar div div ul li:nth-child(4) a')).getText().then(function (text) { console.log(text) });
                     element(by.css('#tabbar div div ul li:nth-child(4) a')).click().then(function(){
@@ -155,7 +161,7 @@ describe('Campaign Create Spec' , function(){
 
                     }); });
                     });//it block-create chapter
-
+*/
 });//describe block
 /*
 it('should manage campaign configurations' , function(){
