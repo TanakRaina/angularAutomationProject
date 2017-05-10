@@ -22,11 +22,11 @@ describe('Check donation using search for campaign' , function(){
    it('should check donation to be successful' , function(){
 
 
-            element(by.css('#navbar ul li:nth-child(1) a')).click();
-            browser.sleep(2000);
 
-            element(by.css('#searchbar > ul > li > div > div > auto-complete-widget > div > input')).sendKeys(browser.params.Donation_Campaign_stripe).then(function(){
-            element(by.css('#searchbar > ul > li > div > div > auto-complete-widget > div > div > div > div > li > div > div:nth-child(2) > li > a')).click();
+            element(by.css('#navbar > ul.nav.navbar-nav.navbar-right.right-menu > li.customSearch > auto-complete-widget > div > input')).click()
+           // 'browser.params.Donation_Campaign_stripe'
+            element(by.css('#navbar > ul > li.customSearch > auto-complete-widget > div > input')).sendKeys('Ferns And Petals').then(function(){
+            element(by.css('#navbar > ul > li.customSearch > auto-complete-widget > div > div > div > li > div > div:nth-child(2)')).click();
             });
             browser.sleep(2000);
             element(by.css('#fundraising-app-holder > div > cause-detail > div > div:nth-child(1) > div > div.campaignPriceDetail.padding-top50 > div.navbar.navbar-default.customMenuBtn > div > span > a.btn.btn-primary')).click()

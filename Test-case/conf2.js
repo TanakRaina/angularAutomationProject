@@ -4,10 +4,11 @@ exports.config={
 
     framework: 'jasmine',
     seleniumAddress: 'http://localhost:4444/wd/hub' ,
-    specs:['specs/Donate_using_search.js'],
+    specs:['specs/test-page-object2.js'],
     jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 90000}
+
 
 
     }
