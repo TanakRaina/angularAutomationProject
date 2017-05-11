@@ -1,5 +1,5 @@
 
-var AngularPage = require('../specs/page_object.js');
+var AngularPage = require('../pageObject/page_object.js');
 /*
 describe('angularjs homepage', function() {
   it('should greet the named user', function() {
